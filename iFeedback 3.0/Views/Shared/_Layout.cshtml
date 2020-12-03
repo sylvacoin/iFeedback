@@ -1,0 +1,210 @@
+﻿
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>@ViewData["Title"] - Customer FeedBack App </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="~/lib/img/favicon.ico">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="~/lib/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/lib/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/lib/css/flaticon.css">
+    <link rel="stylesheet" href="~/lib/css/slicknav.css">
+    <link rel="stylesheet" href="~/lib/css/animate.min.css">
+    <link rel="stylesheet" href="~/lib/css/magnific-popup.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="~/lib/css/themify-icons.css">
+    <link rel="stylesheet" href="~/lib/css/slick.css">
+    <link rel="stylesheet" href="~/lib/css/nice-select.css">
+    <script src="https://use.fontawesome.com/5ac93d4ca8.js"></script>
+    <link rel="stylesheet" href="~/lib/css/style.css?v=3.1">
+
+    <!-- All JS Custom Plugins Link Here here -->
+    <script src="~/lib/js/vendor/modernizr-3.5.0.min.js"></script>
+
+
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="~/lib/js/vendor/jquery-1.12.4.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="~/lib/img/logo/logo.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+
+    <header>
+        <!-- Header Start -->
+        <div class="header-area header-transparrent ">
+            <div class="main-header header-sticky">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <!-- Logo -->
+                        <div class="col-xl-2 col-lg-2 col-md-2">
+                            <div class="logo">
+                                <a asp-action="index" asp-controller="Home"><img src="~/lib/img/logo/logo.png" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-10 col-lg-10 col-md-10">
+                            <!-- Main-menu -->
+                            <div class="main-menu f-right d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+                                        <li><a asp-controller="Home" asp-action="about">About</a></li>
+                                        <partial name="_loginPartial.cshtml" />
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+
+    <main>
+        <div class="slider-area">
+            <div class="slider-active">
+                <div class="single-slider slider-height sky-blue d-flex align-items-start slider-padding pb-100">
+                    <div class="container">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+
+        <!-- Footer Start-->
+        <div class="footer-main">
+            <div class="footer-area footer-padding">
+                <div class="container">
+                    <div class="row  justify-content-between">
+                        <div class="col-lg-3 col-md-4 col-sm-8">
+                            <div class="single-footer-caption mb-30">
+                                <!-- logo -->
+                                <div class="footer-logo">
+                                    <a href="index.html"><img src="~/lib/img/logo/logo2_footer.png" alt=""></a>
+                                </div>
+                                <div class="footer-tittle">
+                                    <div class="footer-pera">
+                                        <p class="info1">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-5">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h4>Quick Links</h4>
+                                    <ul>
+                                        <li><a href="#">About</a></li>
+                                        <li><a href="#">Features</a></li>
+                                        <li><a href="#">Pricing</a></li>
+                                        <li><a href="#">Download</a></li>
+                                        <li><a href="#">Reviews</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-7">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h4>Support</h4>
+                                    <ul>
+                                        <li><a href="#">Report a bug</a></li>
+                                        <li><a href="#">Privacy Policy</a></li>
+                                        <li><a href="#">Terms & Conditions</a></li>
+                                        <li><a href="#">Sitemap</a></li>
+                                        <li><a href="#">FAQs</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-8">
+
+                        </div>
+                    </div>
+                    <!-- Copy-Right -->
+                    <div class="row align-items-center">
+                        <div class="col-xl-12 ">
+                            <div class="footer-copy-right">
+                                <p>
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                    Copyright &copy;
+                                    <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End-->
+
+    </footer>
+
+    <!-- JS here -->
+
+    <script src="~/lib/js/popper.min.js"></script>
+    <script src="~/lib/js/bootstrap.min.js"></script>
+    <!-- Bootstrap 4 rating plugin -->
+    <script src="~/lib/js/bootstrap4-rating-input.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="~/lib/js/jquery.slicknav.min.js"></script>
+
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="~/lib/js/owl.carousel.min.js"></script>
+    <script src="~/lib/js/slick.min.js"></script>
+    <!-- Date Picker -->
+    <script src="~/lib/js/gijgo.min.js"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="~/lib/js/wow.min.js"></script>
+    <script src="~/lib/js/animated.headline.js"></script>
+    <script src="~/lib/js/jquery.magnific-popup.js"></script>
+
+    <!-- Scrollup, nice-select, sticky -->
+    <script src="~/lib/js/jquery.scrollUp.min.js"></script>
+    <script src="~/lib/js/jquery.nice-select.min.js"></script>
+    <script src="~/lib/js/jquery.sticky.js"></script>
+
+    <!-- contact js -->
+    <script src="~/lib/js/vendor/jquery-validate/jquery.validate.min.js"></script>
+    <script src="~/lib/js/vendor/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="~/lib/js/plugins.js"></script>
+    <script>
+        $(window).on('load', function () {
+            $('#preloader-active').delay(450).fadeOut('slow');
+            $('body').delay(450).css({
+                'overflow': 'visible'
+            });
+        });
+    </script>
+
+    @RenderSection("Scripts", required: false)
+    @RenderSection("FooterScripts", required: false)
+</body>
+</html>

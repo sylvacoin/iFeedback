@@ -1,0 +1,171 @@
+﻿@model Feedback
+@{
+    ViewData["Title"] = "Home Page";
+}
+<!-- Slider Area Start-->
+
+<div class="row d-flex align-items-start">
+    <div class="col-lg-6 col-md-9 ">
+        <div class="hero__caption">
+            <span data-animation="fadeInUp" data-delay=".4s">Welcome to</span>
+            <h1 data-animation="fadeInUp" data-delay=".6s">iFeedback</h1>
+            <p data-animation="fadeInUp" data-delay=".8s">Click on get started to give feedback about our service.</p>
+            <!-- Slider btn -->
+            <div class="slider-btns">
+                <!-- Video Btn -->
+                <a data-animation="fadeInRight" data-delay="1.0s" class="popup-video video-btn ani-btn" href="https://www.youtube.com/watch?v=1aP-TXUpNoU"><i class="fas fa-play"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        @if (TempData["message"] != null)
+        {
+            <div class="alert alert-success">
+                <p>@TempData["message"]</p>
+            </div>
+        }
+    <form class="container" method="post" asp-action="Create" asp-controller="Home">
+        <input asp-for="Ip" type="hidden" value="" id="ip" />
+        <input asp-for="Country" type="hidden" value="" id="country" />
+        <input asp-for="City" type="hidden" value="" id="city" />
+        <input asp-for="Region" type="hidden" value="" id="region" />
+
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label asp-for="CustomerName"></label>
+                    <input class="form-control" asp-for="CustomerName">
+                    <span class="text-danger text-small" asp-validation-for="CustomerName"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label asp-for="CustomerEmail"></label>
+                    <input class="form-control" asp-for="CustomerEmail">
+                    <span class="text-danger text-small" asp-validation-for="CustomerEmail"></span>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label asp-for="CustomerPhone"></label>
+                    <input class="form-control" asp-for="CustomerPhone">
+                    <span class="text-danger text-small" asp-validation-for="CustomerPhone"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label asp-for="Rating"> How did you like our service?</label>
+                    <div class="d-flex justify-content-between">
+                        <input asp-for="Rating" class="rating" value="3" />
+                        <p class="rating-text"></p>
+                    </div>
+                    <span class="text-danger text-small" asp-validation-for="Rating"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label asp-for="Comment"></label>
+                    <textarea asp-for="Comment" class="form-control"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <input type="submit" name="submit" value="Send Feedback" class="btn radius-btn btn-block" />
+            </div>
+        </div>
+    </form>
+    </div>
+</div>
+
+@section FooterScripts {
+    <!-- Slider Area End -->
+    <script type="text/javascript">
+
+        //$(document).on('sub')
+
+        $(function () {
+
+            var initial = $('input.rating').val();
+            var text = getRatingText(initial);
+            $('.rating-text').html(text);
+
+            $(document).on('change', 'input.rating', function () {
+                var value = $(this).val();
+                var text = getRatingText(value);
+                $('.rating-text').html(text);
+                initial = value;
+            });
+
+            $(document).on('mouseenter', ".rating-input i", function () {
+
+                var text = getRatingText($(this).data('value'));
+                $('.rating-text').html(text);
+
+            });
+
+            $(document).on('mouseleave', ".rating-input i", function () {
+                var text = getRatingText(initial);
+                $('.rating-text').html(text);
+            });
+
+
+        });
+
+        getRatingText = function (input) {
+            var key = parseInt(input);
+            switch (key) {
+                case 1:
+                    return "Very Poor";
+                    break;
+                case 2:
+                    return "Poor";
+                    break;
+                case 3:
+                    return "Good"
+                    break;
+                case 4:
+                    return "Very Good";
+                    break;
+                case 5:
+                    return "Excellent"
+                    break;
+                default:
+                    return ""
+            }
+
+        }
+
+        $.ajax({
+            url: "//api.ipify.org/?format=json",
+            dataType: 'json',
+        }).success(function (data) {
+            var ip = data.ip;
+            $.ajax({
+                url: "https://geo.ipify.org/api/v1?apiKey=at_ouMvWYCfd9z0R4bK33XjmmT1z73y5&ipAddress=" + ip,
+                dataType: "json",
+                success: function (ipdata) {
+                    var city = ipdata.location.city;
+                    var country = ipdata.location.country;
+                    var region = ipdata.location.region;
+                    var myIp = ip;
+                    console.log(ip, city, country, region);
+                    $('#ip').val(myIp);
+                    $('#city').val(city);
+                    $('#country').val(country);
+                    $('#region').val(region);
+                }
+            })
+        }).error(function (jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorThrown);
+        });
+    </script>
+}
